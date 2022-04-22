@@ -4,9 +4,8 @@ const CreatureAccessory = artifacts.require(
   "../contracts/CreatureAccessory.sol"
 );
 
-
 contract("CreatureAccessory", (accounts) => {
-  const URI_BASE = 'https://creatures-api.opensea.io';
+  const URI_BASE = "https://nft-hoverboard.herokuapp.com";
   const CONTRACT_URI = `${URI_BASE}/contract/opensea-erc1155`;
   let creatureAccessory;
 
@@ -18,8 +17,8 @@ contract("CreatureAccessory", (accounts) => {
 
   // This also tests contractURI()
 
-  describe('#constructor()', () => {
-    it('should set the contractURI to the supplied value', async () => {
+  describe("#constructor()", () => {
+    it("should set the contractURI to the supplied value", async () => {
       assert.equal(await creatureAccessory.contractURI(), CONTRACT_URI);
     });
   });

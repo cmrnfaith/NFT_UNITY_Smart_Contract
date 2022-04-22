@@ -40,7 +40,7 @@ module.exports = {
       provider: function () {
         return new HDWalletProvider(MNEMONIC, rinkebyNodeUrl);
       },
-      gas: 76837700940,
+      // gas: 9970704,
       network_id: 4,
     },
     ropsten: {

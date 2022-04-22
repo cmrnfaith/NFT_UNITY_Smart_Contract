@@ -1,3 +1,5 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "./../.env") });
 const HDWalletProvider = require("truffle-hdwallet-provider");
 const web3 = require("web3");
 const MNEMONIC = process.env.MNEMONIC;
@@ -16,6 +18,8 @@ if (!MNEMONIC || !NODE_API_KEY || !OWNER_ADDRESS || !NETWORK) {
   console.error(
     "Please set a mnemonic, Alchemy/Infura key, owner, network, and contract address."
   );
+
+  console.error(!OWNER_ADDRESS);
   return;
 }
 
@@ -94,7 +98,7 @@ async function main() {
     const nftContract = new web3Instance.eth.Contract(
       NFT_ABI,
       NFT_CONTRACT_ADDRESS,
-      { gasLimit: "1000000000" }
+      { gasLimit: "10000000" }
     );
 
     // Creatures issued directly to the owner.
@@ -109,6 +113,7 @@ async function main() {
       "Add NFT_CONTRACT_ADDRESS or FACTORY_CONTRACT_ADDRESS to the environment variables"
     );
   }
+  return;
 }
 
 main();
