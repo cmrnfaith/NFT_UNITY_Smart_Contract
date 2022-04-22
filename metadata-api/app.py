@@ -123,7 +123,7 @@ def creature(token_id):
         'description': 'Friendly OpenSea Creature that enjoys long swims in the ocean.',
         'image': image_url,
         'animation_url': 'https://hoverboard-animation.netlify.app/',
-        'external_url': 'https://openseacreatures.io/%s' % token_id,
+        'external_url': 'https://github.com/cmrnfaith/WebGL_Hoverboard',
         'attributes': attributes
     })
 
@@ -141,7 +141,7 @@ def creature_box(token_id):
         'description': 'This lootbox contains some OpenSea Creatures! It can also be traded!',
         'image': image_url,
         'animation_url': 'https://hoverboard-animation.netlify.app/',
-        'external_url': 'https://openseacreatures.io/%s' % token_id,
+        'external_url': 'https://github.com/cmrnfaith/WebGL_Hoverboard',
         'attributes': attributes
     })
 
@@ -176,7 +176,7 @@ def creature_factory(token_id):
         'description': description,
         'image': image_url,
         'animation_url': 'https://hoverboard-animation.netlify.app/',
-        'external_url': 'https://openseacreatures.io/%s' % token_id,
+        'external_url': 'https://github.com/cmrnfaith/WebGL_Hoverboard',
         'attributes': attributes
     })
 
@@ -205,7 +205,7 @@ def accessory(token_id):
         'description': 'A fun and useful accessory for your friendly OpenSea creatures.',
         'image': image_url,
         'animation_url': 'https://hoverboard-animation.netlify.app/',
-        'external_url': 'https://openseacreatures.io/accessory/%s' % token_id,
+        'external_url': 'https://github.com/cmrnfaith/WebGL_Hoverboard',
         'attributes': attributes
     })
 
@@ -219,11 +219,11 @@ def accessory_box(token_id):
     _add_attribute(attributes, 'number_inside', [3], token_id)
 
     return jsonify({
-        'name': 'Accessory Loot Box',
-        'description': 'This lootbox contains some OpenSea Creature accessories! It can also be traded!',
+        'name': 'Hoverboard Loot Box',
+        'description': 'This lootbox contains Hoverboard! It can also be traded!',
         'image': image_url,
         'animation_url': 'https://hoverboard-animation.netlify.app/',
-        'external_url': 'https://openseacreatures.io/box/accessory/%s' % token_id,
+        'external_url': 'https://github.com/cmrnfaith/WebGL_Hoverboard',
         'attributes': attributes
     })
 
@@ -232,22 +232,19 @@ def accessory_box(token_id):
 def accessory_factory(token_id):
     token_id = int(token_id)
     if token_id == 0:
-        name = 'One OpenSea creature accessory'
-        description = 'When you purchase this option, you will receive a single OpenSea creature accessory of a random variety. ' \
-                      'Enjoy and take good care of your aquatic being!'
-        image_url = _compose_image(['images/factory/egg.png'], token_id, 'factory')
+        name = 'One Hoverboard lootbox'
+        description = 'When you purchase this option, you will receive one lootbox, which can be opened to reveal one ' \
+                      'Hoverboard accessorie of random variety. Enjoy!'
         num_inside = 1
     elif token_id == 1:
-        name = 'Four OpenSea creature accessories'
-        description = 'When you purchase this option, you will receive four OpenSea creature accessories of random variety. ' \
-                      'Enjoy and take good care of your aquatic beings!'
-        image_url = _compose_image(['images/factory/four-eggs.png'], token_id, 'factory')
+        name = 'Four Hoverboard lootboxes'
+        description = 'When you purchase this option, you will receive one lootbox, which can be opened to reveal three ' \
+                      'Hoverboard accessories of random variety. Enjoy!'
         num_inside = 4
     elif token_id == 2:
-        name = 'One OpenSea creature accessory lootbox'
+        name = 'One Hoverboard lootbox'
         description = 'When you purchase this option, you will receive one lootbox, which can be opened to reveal three ' \
-                      'OpenSea creature accessories of random variety. Enjoy and take good care of these cute aquatic beings!'
-        image_url = _compose_image(['images/box/lootbox.png'], token_id, 'factory')
+                      'Hoverboard accessories of random variety. Enjoy!'
         num_inside = 3
         
     image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
@@ -259,7 +256,7 @@ def accessory_factory(token_id):
         'description': description,
         'image': image_url,
         'animation_url': 'https://hoverboard-animation.netlify.app/',
-        'external_url': 'https://openseacreatures.io/%s' % token_id,
+        'external_url': 'https://github.com/cmrnfaith/WebGL_Hoverboard',
         'attributes': attributes
     })
 
