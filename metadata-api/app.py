@@ -76,16 +76,16 @@ ACCESSORIES_ATTS_GENERATION = [1, 1, 2, 1, 1, 3]
 
 CONTRACT_URI_METADATA = {
     'opensea-creatures': {
-        'name': 'OpenSea Creatures',
-        'description': 'Friendly creatures of the sea.',
-        'image': 'https://example.com/image.png',
-        'external_link': 'https://github.com/ProjectOpenSea/opensea-creatures/'
+        'name': 'Animation Hoverboard Test',
+        'description': 'Test contract to implement a custom animation URL.',
+        'image': 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6',
+        'external_link': 'https://github.com/cmrnfaith/NFT_UNITY_Smart_Contract'
     },
     'opensea-erc1155': {
-        'name': 'OpenSea Creature Accessories',
-        'description': "Fun and useful accessories for your OpenSea creatures.",
-        'image': 'https://example.com/image.png',
-        'external_link': 'https://github.com/ProjectOpenSea/opensea-erc1155/'
+        'name': 'Animation Hoverboard Test',
+        'description': "Test contract to implement a custom animation URL.",
+        'image': 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6',
+        'external_link': 'https://github.com/cmrnfaith/NFT_UNITY_Smart_Contract'
     }
 }
 CONTRACT_URI_METADATA_AVAILABLE = CONTRACT_URI_METADATA.keys()
@@ -104,13 +104,7 @@ def creature(token_id):
     num_last_names = len(LAST_NAMES)
     creature_name = '%s %s' % (FIRST_NAMES[token_id % num_first_names], LAST_NAMES[token_id % num_last_names])
 
-    base = BASES[token_id % len(BASES)]
-    eyes = EYES[token_id % len(EYES)]
-    mouth = MOUTH[token_id % len(MOUTH)]
-    image_url = _compose_image(['images/bases/base-%s.png' % base,
-                                'images/eyes/eyes-%s.png' % eyes,
-                                'images/mouths/mouth-%s.png' % mouth],
-                               token_id)
+    image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
 
     attributes = []
     _add_attribute(attributes, 'Base', BASES, token_id)
@@ -128,6 +122,7 @@ def creature(token_id):
         'name': creature_name,
         'description': 'Friendly OpenSea Creature that enjoys long swims in the ocean.',
         'image': image_url,
+        'animation_url': 'https://hoverboard-animation.netlify.app/',
         'external_url': 'https://openseacreatures.io/%s' % token_id,
         'attributes': attributes
     })
@@ -136,7 +131,7 @@ def creature(token_id):
 @app.route('/api/box/creature/<token_id>')
 def creature_box(token_id):
     token_id = int(token_id)
-    image_url = _compose_image(['images/box/lootbox.png'], token_id, 'box')
+    image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
 
     attributes = []
     _add_attribute(attributes, 'number_inside', [3], token_id)
@@ -145,6 +140,7 @@ def creature_box(token_id):
         'name': 'Creature Loot Box',
         'description': 'This lootbox contains some OpenSea Creatures! It can also be traded!',
         'image': image_url,
+        'animation_url': 'https://hoverboard-animation.netlify.app/',
         'external_url': 'https://openseacreatures.io/%s' % token_id,
         'attributes': attributes
     })
@@ -169,7 +165,7 @@ def creature_factory(token_id):
         name = 'One OpenSea creature lootbox'
         description = 'When you purchase this option, you will receive one lootbox, which can be opened to reveal three ' \
                       'OpenSea creatures of random variety. Enjoy and take good care of these cute aquatic beings!'
-        image_url = _compose_image(['images/box/lootbox.png'], token_id, 'factory')
+        image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
         num_inside = 3
 
     attributes = []
@@ -179,6 +175,7 @@ def creature_factory(token_id):
         'name': name,
         'description': description,
         'image': image_url,
+        'animation_url': 'https://hoverboard-animation.netlify.app/',
         'external_url': 'https://openseacreatures.io/%s' % token_id,
         'attributes': attributes
     })
@@ -193,8 +190,8 @@ def accessory(token_id):
     if token_id >= num_accessories:
         abort(404, description='No such token')
     accessory_name = ACCESSORIES_NAMES[token_id]
-    image_path = 'images/accessory/%s' % ACCESSORIES_IMAGES[token_id]
-    image_url = _bucket_image(image_path, token_id, 'accessory')
+    image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
+
     attributes = []
     _add_attribute(attributes, 'Aqua Boost', ACCESSORIES_ATTS_INT, token_id, display_type='boost_number')
     _add_attribute(attributes, 'Stamina Increase', ACCESSORIES_ATTS_PERCENT, token_id, display_type='boost_percentage')
@@ -207,6 +204,7 @@ def accessory(token_id):
         'name': accessory_name,
         'description': 'A fun and useful accessory for your friendly OpenSea creatures.',
         'image': image_url,
+        'animation_url': 'https://hoverboard-animation.netlify.app/',
         'external_url': 'https://openseacreatures.io/accessory/%s' % token_id,
         'attributes': attributes
     })
@@ -215,7 +213,7 @@ def accessory(token_id):
 @app.route('/api/box/accessory/<token_id>')
 def accessory_box(token_id):
     token_id = int(token_id)
-    image_url = _compose_image(['images/box/lootbox.png'], token_id, 'box')
+    image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
 
     attributes = []
     _add_attribute(attributes, 'number_inside', [3], token_id)
@@ -224,6 +222,7 @@ def accessory_box(token_id):
         'name': 'Accessory Loot Box',
         'description': 'This lootbox contains some OpenSea Creature accessories! It can also be traded!',
         'image': image_url,
+        'animation_url': 'https://hoverboard-animation.netlify.app/',
         'external_url': 'https://openseacreatures.io/box/accessory/%s' % token_id,
         'attributes': attributes
     })
@@ -250,7 +249,8 @@ def accessory_factory(token_id):
                       'OpenSea creature accessories of random variety. Enjoy and take good care of these cute aquatic beings!'
         image_url = _compose_image(['images/box/lootbox.png'], token_id, 'factory')
         num_inside = 3
-
+        
+    image_url = 'ipfs://QmYs6WoVwNFJee4wVtt5eiMaEzSsWN1nmxYPt34JVvVpT6'
     attributes = []
     _add_attribute(attributes, 'number_inside', [num_inside], token_id)
 
@@ -258,6 +258,7 @@ def accessory_factory(token_id):
         'name': name,
         'description': description,
         'image': image_url,
+        'animation_url': 'https://hoverboard-animation.netlify.app/',
         'external_url': 'https://openseacreatures.io/%s' % token_id,
         'attributes': attributes
     })
