@@ -59,15 +59,13 @@ module.exports = {
       settings: {
         optimizer: {
           enabled: true,
-          runs: 20   // Optimize for how many times you intend to run the code
+          runs: 20, // Optimize for how many times you intend to run the code
         },
       },
     },
   },
-  plugins: [
-    'truffle-plugin-verify'
-  ],
+  plugins: ["truffle-plugin-verify"],
   api_keys: {
-    etherscan: 'ETHERSCAN_API_KEY_FOR_VERIFICATION'
-  }
+    etherscan: "3D8H668Y9X93WH4D2TRKXYT2GHB3GIS7WV",
+  },
 };
