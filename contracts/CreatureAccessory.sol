@@ -13,11 +13,11 @@ contract CreatureAccessory is ERC1155Tradable {
         ERC1155Tradable(
             "OpenSea Creature Accessory",
             "OSCA",
-            "https://creatures-api.opensea.io/api/accessory/{id}",
+            "https://nft-hoverboard.herokuapp.com/api/accessory/{id}",
             _proxyRegistryAddress
         ) {}
 
     function contractURI() public pure returns (string memory) {
-        return "https://creatures-api.opensea.io/contract/opensea-erc1155";
+        return "https://nft-hoverboard.herokuapp.com/contract/opensea-erc1155";
     }
 }

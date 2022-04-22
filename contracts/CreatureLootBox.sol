@@ -37,7 +37,7 @@ contract CreatureLootBox is ERC721Tradable {
     }
 
     function baseTokenURI() override public pure returns (string memory) {
-        return "https://creatures-api.opensea.io/api/box/";
+        return "https://nft-hoverboard.herokuapp.com/api/box/";
     }
 
     function itemsPerLootbox() public view returns (uint256) {

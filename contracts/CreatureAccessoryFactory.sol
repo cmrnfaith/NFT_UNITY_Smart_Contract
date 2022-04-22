@@ -21,7 +21,7 @@ contract CreatureAccessoryFactory is FactoryERC1155, Ownable, ReentrancyGuard {
     address public nftAddress;
     address public lootBoxAddress;
     string
-        internal constant baseMetadataURI = "https://creatures-api.opensea.io/api/";
+        internal constant baseMetadataURI = "https://nft-hoverboard.herokuapp.com/api/";
     uint256 constant UINT256_MAX = ~uint256(0);
 
     /*
