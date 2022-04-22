@@ -20,6 +20,10 @@ const rinkebyNodeUrl = isInfura
   ? "https://rinkeby.infura.io/v3/" + NODE_API_KEY
   : "https://eth-rinkeby.alchemyapi.io/v2/" + NODE_API_KEY;
 
+const ropstenNodeUrl = isInfura
+  ? "https://ropsten.infura.io/v3/" + NODE_API_KEY
+  : "https://eth-ropsten.alchemyapi.io/v2/" + NODE_API_KEY;
+
 const mainnetNodeUrl = isInfura
   ? "https://mainnet.infura.io/v3/" + NODE_API_KEY
   : "https://eth-mainnet.alchemyapi.io/v2/" + NODE_API_KEY;
@@ -36,8 +40,15 @@ module.exports = {
       provider: function () {
         return new HDWalletProvider(MNEMONIC, rinkebyNodeUrl);
       },
-      gas: 5000000,
+      gas: 76837700940,
       network_id: 4,
+    },
+    ropsten: {
+      provider: function () {
+        return new HDWalletProvider(MNEMONIC, ropstenNodeUrl);
+      },
+      network_id: 3,
+      gas: 908377009,
     },
     live: {
       network_id: 1,

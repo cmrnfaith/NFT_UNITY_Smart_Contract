@@ -94,7 +94,7 @@ async function main() {
     const nftContract = new web3Instance.eth.Contract(
       NFT_ABI,
       NFT_CONTRACT_ADDRESS,
-      { gasLimit: "1000000" }
+      { gasLimit: "1000000000" }
     );
 
     // Creatures issued directly to the owner.
